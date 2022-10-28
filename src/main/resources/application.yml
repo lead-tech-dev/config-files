@@ -4,10 +4,11 @@ server:
 spring:
   cloud:
     config:
-      name: configserver
+      name: config
       server:
         git:
-          uri: https://github.com/maximan81
-          search-paths: config-files*
-          username: ericmaximan@gmail.com
-          password: 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
+          uri: https://github.com/maximan81/config-files.git
+          default-label: master
+        bootstrap: true
+  application:
+    name: config
