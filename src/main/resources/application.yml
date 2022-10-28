@@ -1,0 +1,13 @@
+server:
+  port: 5000
+
+spring:
+  cloud:
+    config:
+      name: configserver
+      server:
+        git:
+          uri: https://github.com/maximan81
+          search-paths: config-files*
+          username: ericmaximan@gmail.com
+          password: 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
