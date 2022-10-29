@@ -14,6 +14,9 @@ spring:
       database: flights
       host: localhost
 
+planes:
+  service: PLANES
+
 eureka:
   client:
     serviceUrl:
