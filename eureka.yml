@@ -4,6 +4,7 @@ server:
 eureka:
   instance:
     hostname: localhost
+    #hostname: eureka
     health-check-url-path: /actuator/health
     status-page-url-path: /actuator/info
   client:
@@ -12,3 +13,4 @@ eureka:
 logging:
   level:
     org.springframework.cloud: 'DEBUG'
+

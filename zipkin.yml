@@ -5,9 +5,11 @@ spring:
   rabbitmq:
     port: 5672
     host: localhost
+    #host: rabbitmq
   datasource:
     schema: classpath:/mysql.sql
     url: "jdbc:mysql://localhost:3306/zipkin?createDatabaseIfNotExists=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false"
+    #url: "jdbc:mysql://mysql:3306/zipkin?createDatabaseIfNotExists=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false"
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
@@ -28,3 +30,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+      #defaultZone: http://eureka:8761/eureka/
+  instance:
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}

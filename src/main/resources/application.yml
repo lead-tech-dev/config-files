@@ -9,6 +9,5 @@ spring:
         git:
           uri: https://github.com/maximan81/config-files.git
           default-label: master
-        bootstrap: true
   application:
     name: config
