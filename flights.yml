@@ -16,6 +16,7 @@ spring:
 
 planes:
   service: PLANES
+  path: http://localhost:50001/planes
 
 eureka:
   client:
