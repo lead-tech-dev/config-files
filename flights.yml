@@ -1,28 +1,15 @@
 server:
-  port: 50005
-spring:
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-  sleuth:
-    annotation:
-      enabled: true
-  data:
-    mongodb:
-      database: flights
-      host: localhost
-
-planes:
-  service: PLANES
-  path: http://localhost:50001/planes
+  port: 50015
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-  instance:
-    statusPageUrlPath: /actuator/info
-    healthCheckUrlPath: /actuator/health
-    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+      #defaultZone: http://eureka:8761/eureka/
+spring:
+  boot:
+    admin:
+      discovery:
+        converter:
+          health-endpoint-path: /actuator/health
+          management-context-path: /actuator
