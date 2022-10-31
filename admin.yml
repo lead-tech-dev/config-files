@@ -13,7 +13,11 @@ spring:
     mongodb:
       database: planes
       host: localhost
-
+  boot:
+    admin:
+      discovery:
+        converter:
+          health-endpoint-path: /actuator/health
 eureka:
   client:
     serviceUrl:
@@ -22,3 +26,4 @@ eureka:
     statusPageUrlPath: /actuator/info
     healthCheckUrlPath: /actuator/health
     instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
