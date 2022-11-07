@@ -1,5 +1,5 @@
 server:
-  port: 50070
+  port: 50000
 spring:
   rabbitmq:
     host: localhost
@@ -12,7 +12,7 @@ spring:
       enabled: true
   data:
     mongodb:
-      database: payments
+      database: passengers
       host: mongo
   oauth2:
     resource:
@@ -28,36 +28,6 @@ eureka:
     statusPageUrlPath: /actuator/info
     healthCheckUrlPath: /actuator/health
     instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-
-management:
-  security:
-    enabled: false
-  health:
-    defaults: true
-    sensitive: true
-  endpoints:
-    web:
-      expose: "*"
-    health:
-      show-details: true
-    cors:
-      allowed-origins: "*"
-      allowed-methods: GET,POST
-
-amqp:
-  payments:
-    queue:
-      request: request_payment_queue
-      response: response_payment_queue
-    exchange:
-      payment: payments
-    key:
-      request: request_payment
-      response: response_payment
-
-flight:
-  service: flights
-  path: flights
 
 config:
   oauth2:

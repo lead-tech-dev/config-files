@@ -1,5 +1,5 @@
 server:
-  port: 50070
+  port: 50065
 spring:
   rabbitmq:
     host: localhost
@@ -10,10 +10,6 @@ spring:
   sleuth:
     annotation:
       enabled: true
-  data:
-    mongodb:
-      database: payments
-      host: mongo
   oauth2:
     resource:
       userInfoUri: http://localhost:7777/credential
@@ -29,35 +25,27 @@ eureka:
     healthCheckUrlPath: /actuator/health
     instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-management:
-  security:
-    enabled: false
-  health:
-    defaults: true
-    sensitive: true
-  endpoints:
-    web:
-      expose: "*"
-    health:
-      show-details: true
-    cors:
-      allowed-origins: "*"
-      allowed-methods: GET,POST
+passengers:
+  service: PASSENGERS
+  oauth:
+    client_id: 65dfc684722921c89ae221d90f6ae2f9
+    client_secret: d658a112c1160fdcb5c6a4c3ce33c716cdb84160
 
-amqp:
-  payments:
-    queue:
-      request: request_payment_queue
-      response: response_payment_queue
-    exchange:
-      payment: payments
-    key:
-      request: request_payment
-      response: response_payment
+bookings:
+  service: BOOKINGS
+  oauth:
+    client_id: f8374efd71270dc152a2941bd0d9bed6
+    client_secret: da29f4b2ac608bdc8024b7ab084981fdf4014c16
 
-flight:
-  service: flights
-  path: flights
+flights:
+  service: FLIGHTS
+  oauth:
+    client_id: 917092f2d185310c0f4fa8ba3296e33d
+    client_secret: f7641c289245d5d43d0aa96d0c14dbc6afba31fc
+
+auth:
+  service: AUTH
+  path: /oauth/token
 
 config:
   oauth2:
